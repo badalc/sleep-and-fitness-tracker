@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/walking2"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          
+           >
+
+        <TextView
+            android:id="@+id/walktxtviewstep1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:shadowColor="#0000ff"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="10"
+            android:text="Steps taken:"
+            android:textColor="#C02938"
+            android:textSize="25sp"
+            android:textStyle="bold" 
+            android:layout_weight="2"/>
+
+        <TextView
+            android:id="@+id/walktxtviewstep2"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.71"
+            android:text=""
+            android:textColor="#C02938"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+          android:orientation="horizontal" >
+    
+ <TextView
+        android:id="@+id/walktxtviewcalorie1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shadowColor="#0000ff"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="10"
+            android:textSize="25sp"
+            android:textStyle="bold" 
+        android:text="Calories burned:"
+          android:textColor="#C02938"
+         />
+    <TextView
+        android:id="@+id/walktxtviewcalorie2"
+        android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.71"
+            android:text=""
+            android:textColor="#C02938"
+            android:textSize="25sp" />
+
+   
+    </LinearLayout>
+         <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+          android:orientation="horizontal" >
+    
+ <TextView
+        android:id="@+id/walktxtviewdist1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shadowColor="#0000ff"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="10"
+            android:textSize="25sp"
+            android:textStyle="bold" 
+        android:text="Distance travelled:"
+          android:textColor="#C02938"
+         />
+    <TextView
+        android:id="@+id/walktxtviewdist2"
+        android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.71"
+            android:text=""
+            android:textColor="#C02938"
+            android:textSize="25sp" />
+
+   
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+          android:orientation="horizontal" 
+          android:layout_gravity="bottom"
+          android:layout_marginTop="385dp"
+          >
+         <Button
+             android:id="@+id/walkstartbtn"
+            
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="2"
+             android:background="@drawable/custom_walking1"
+             android:textColor="#FFFFFF"
+            android:alpha="0.4"
+             android:text="START" />
+
+         <Button
+             android:id="@+id/walkstopbtn"
+             
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="2"
+             android:background="@drawable/custom_walking1"
+             android:textColor="#FFFFFF"
+            android:alpha="0.4"
+             android:text="STOP" />
+</LinearLayout>
+</LinearLayout>
