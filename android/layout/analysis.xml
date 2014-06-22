@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100" >
+
+    <LinearLayout
+        android:id="@+id/chartview"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/svDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true" >
+
+        <LinearLayout android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal" 
+            android:layout_height="wrap_content"
+            android:weightSum="100">
+
+            <TextView
+                android:id="@+id/deepSleep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="Percentage deep Sleep"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/deepSleepValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100" >
+
+            <TextView
+                android:id="@+id/lightSleep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="Percentage light sleep"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/lightSleepValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100" >
+
+            <TextView
+                android:id="@+id/noSleep"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:text="Percentage Awake"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/noSleepValue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="50" />
+
+        </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
