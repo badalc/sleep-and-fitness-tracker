@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    >
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="200dp">
+    <TimePicker android:id="@+id/tp_time"
+        android:scrollbarStyle="outsideOverlay"
+       android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:weightSum="100">
+
+    <Button android:id="@+id/btn_settime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="40"
+        android:text="Set Alarm"/>
+    
+     <Button android:id="@+id/btn_cancelalarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="60"
+        android:text="Cancel"/>
+     </LinearLayout>
+     <TextView android:id="@+id/txtRecieved"
+         android:layout_width="fill_parent"
+         android:layout_height="50dp"
+         android:hint="values"
+         ></TextView>
+
+</LinearLayout>
