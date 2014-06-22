@@ -1,0 +1,369 @@
+#include<math.h>
+
+// these constants describe the pins. They won't change:
+const int groundpin = 18;             // analog input pin 4 -- ground
+const int powerpin = 19;              // analog input pin 5 -- voltage
+const int xpin = A2;                  // x-axis of the accelerometer
+const int ypin = A1;                  // y-axis
+const int zpin = A0;  // z-axis (only on 3-axis models)
+const int alarmpin=6;
+float accx=0;
+float accy=0;
+float accz=0,acc=0,acc1=0,dacc=0,dacc1=0;
+int count=0,flag=0,flag1=0,incomingByte=0,countpim1=0,countpim2=0,wake=0,wakeflag=0;
+long int ax=0,ay=0,az=0,i=0,sign=0;
+float a=0,a1=0,pim1=0,pim2=0,sum=0,flagx=0,light6=0,deep=0,total=0,wake1=0;
+float SUMACT=0,D=0,D1=0;
+int boo=0,boo1=0,chk=-1,signchange,stepcount=0,chk1=-1;
+int led = 2;
+
+void setup()
+{
+  Serial.begin(115200);
+
+
+  pinMode(groundpin, OUTPUT);
+  pinMode(powerpin, OUTPUT);
+  pinMode(led, OUTPUT);
+  digitalWrite(groundpin, LOW);
+    digitalWrite(alarmpin, LOW);
+    digitalWrite(led, LOW);
+
+  digitalWrite(powerpin, HIGH);
+}
+
+void loop(){
+ 
+ 
+  if(Serial.available()>0){
+    chk=Serial.read();
+ 
+  if(chk=='0'){
+    
+while(1){
+  //for walking, jogging& skipping
+    
+  if(flag){
+acc1=acc;
+if(flag==2){
+dacc1=dacc;
+//ag1=1;
+
+}
+}
+  
+do{
+   accx=analogRead(xpin);
+  
+ accy=analogRead(ypin);
+
+ accz=analogRead(zpin);
+ 
+ ax+=accx;
+ ay+=accy;
+ az+=accz;
+  
+count++;
+
+}
+while(count!=256);
+
+ax=ax>>8;
+ay=ay>>8;
+az=az>>8;
+
+
+if(flag<2)
+flag++;
+
+acc=sqrt(ax*ax+ay*ay+az*az);
+
+if(flag==2)
+{
+dacc=acc-acc1;
+}
+
+   if(dacc*dacc1<0)
+   {  
+   if((dacc-dacc1)>15|| (dacc1-dacc)>15)
+    signchange++;
+    if(signchange==2)
+   {stepcount++;
+   signchange=0;
+   
+   }
+   }
+
+ Serial.print(stepcount);
+  // print a tab between values:
+ 
+  Serial.println();
+  // delay before next reading:
+  
+  count =0;
+  accx=0;
+  accy=0;
+  accz=0;
+  ax=0;ay=0;az=0;
+/* if (Serial.available() > 0) {
+    // read the oldest byte in the serial buffer:
+    incomingByte = Serial.read();
+    // if it's a capital R, reset the counter
+    if (incomingByte == 'R') {
+      Serial.println("RESET");
+      stepcount=0;
+    }
+  }*/
+ if(Serial.available()>0)
+    chk1=Serial.read();
+    if(chk1=='3'){
+      accx=0,accy=0,accz=0,acc=0,acc1=0,dacc=0,dacc1=0,count=0,flag=0,flag1=0,incomingByte=0,countpim1=0,countpim2=0,wake=0,wakeflag=0,ax=0,ay=0,az=0,i=0,sign=0;
+     a=0,a1=0,pim1=0,pim2=0,sum=0,flagx=0,light6=0,deep=0,total=0,wake1=0,SUMACT=0,D=0,D1=0,boo=0,boo1=0,chk=-1,signchange,stepcount=0,chk1=-1;
+    break;
+    }
+ }
+}
+
+
+
+if(chk=='1'){//for pushups
+  while(1){
+    if(flag){
+acc1=acc;
+if(flag==2){
+dacc1=dacc;
+//ag1=1;
+
+}
+}
+  
+do{
+   accx=analogRead(xpin);
+  
+ accy=analogRead(ypin);
+
+ accz=analogRead(zpin);
+ 
+ ax+=accx;
+ ay+=accy;
+ az+=accz;
+  
+count++;
+
+}
+while(count!=256);
+
+ax=ax>>8;
+ay=ay>>8;
+az=az>>8;
+
+
+if(flag<2)
+flag++;
+
+acc=sqrt(ax*ax+ay*ay+az*az);
+
+if(flag==2)
+{
+dacc=acc-acc1;
+}
+
+   if(dacc*dacc1<0)
+   {  
+   if((dacc-dacc1)>18|| (dacc1-dacc)>18)
+    signchange++;
+    if(signchange==2)
+   {stepcount++;
+   signchange=0;
+   
+   }
+   }
+
+
+
+
+
+  Serial.print(stepcount);
+  // print a tab between values:
+ 
+  Serial.println();
+  // delay before next reading:
+  
+  count =0;
+  accx=0;
+  accy=0;
+  accz=0;
+  ax=0;ay=0;az=0;
+/* if (Serial.available() > 0) {
+    // read the oldest byte in the serial buffer:
+    incomingByte = Serial.read();
+    // if it's a capital R, reset the counter
+    if (incomingByte == 'R') {
+      Serial.println("RESET");
+      stepcount=0;
+    }
+  }
+  delay(100);*/
+  if(Serial.available()>0)
+    chk1=Serial.read();
+    if(chk1=='4'){
+      accz=0,acc=0,acc1=0,dacc=0,dacc1=0,count=0,flag=0,flag1=0,incomingByte=0,countpim1=0,countpim2=0,wake=0,wakeflag=0,ax=0,ay=0,az=0,i=0,sign=0;
+       a=0,a1=0,pim1=0,pim2=0,sum=0,flagx=0,light6=0,deep=0,total=0,wake1=0,SUMACT=0,D=0,D1=0,boo=0,boo1=0,chk,signchange,stepcount=0,chk1,accx=0,accy=0;
+
+    break;
+    }
+}
+}
+
+
+
+if(chk=='2'){//for sleep
+  boo=1;
+  while(1){
+  
+countpim1++;
+  if(flag){
+acc1=acc;
+if(flag==2){
+dacc1=dacc;
+pim2=pim1;
+a1=a;
+}
+}
+  
+do{
+   accx=analogRead(xpin);
+  
+ accy=analogRead(ypin);
+
+ accz=analogRead(zpin);
+ 
+ ax+=accx;
+ ay+=accy;
+ az+=accz;
+  
+count++;
+
+}
+while(count!=256);
+
+ax=ax>>8;
+ay=ay>>8;
+az=az>>8;
+
+
+if(flag<2)
+flag++;
+
+acc=sqrt(ax*ax+ay*ay+az*az);
+
+if(flag==2)
+{
+dacc=acc-acc1;
+}
+
+ if(dacc<1.5 && dacc>-1.5)
+a=0;
+
+
+a+=dacc;                               //calcultaing a from delta a
+if(a<0)
+a=-a;
+
+
+
+
+
+pim1=pim2+(a1+a)/2;
+if(countpim1==10)
+{
+  sum+=pim2;
+
+  countpim1=0;
+  countpim2++;
+}
+
+if(countpim2==6)
+{
+  SUMACT=sum/6;
+  sum=0;
+ if(!boo1)Serial.println((long int)((SUMACT/5)*100));
+ 
+ total++;
+if(total>1000)
+{
+  sign++;
+total/=2;
+
+light6/=2;
+
+wake1/=2;
+
+}
+
+
+ if(SUMACT/5>.85)
+ light6++;
+
+  
+ /* if(boo1)Serial.println((int)((light6/total)*100));
+
+if(boo1) Serial.println((int)((wake1/total)*100));*/
+
+ if(SUMACT/5>50)
+ {
+ 
+ wake++;
+ }
+ if(wake>20 )
+ {//if(boo1)Serial.println("AWAKE");
+ wake=0;
+ wake1+=20;
+ }
+  sum=0;
+
+  pim1=0;pim2=0;
+  countpim1=0;countpim2=0;
+
+  
+  
+}                                   //Counting D
+  
+  count =0;
+  accx=0;
+  accy=0;
+  accz=0;
+  ax=0;ay=0;az=0;
+   if(boo1)
+  digitalWrite(led,HIGH);
+/*  if(boo1)
+  break;*/
+ 
+/* if (Serial.available() > 0) {
+    // read the oldest byte in the serial buffer:
+    incomingByte = Serial.read();
+    // if it's a capital R, reset the counter
+    if (incomingByte == '5') {
+      boo1=1;
+    }
+  }*/
+  if(Serial.available()>0)
+    chk1=Serial.read();
+    if(chk1=='6'){
+       digitalWrite(led,LOW);
+       Serial.println((long int)((light6/total)*100));
+
+ Serial.println((long int)((wake1/total)*100));
+      accz=0,acc=0,acc1=0,dacc=0,dacc1=0,count=0,flag=0,flag1=0,incomingByte=0,countpim1=0,countpim2=0,wake=0,wakeflag=0,ax=0,ay=0,az=0,i=0,sign=0;
+       a=0,a1=0,pim1=0,pim2=0,sum=0,flagx=0,light6=0,deep=0,total=0,wake1=0,SUMACT=0,D=0,D1=0,boo=0,boo1=0,chk,signchange,stepcount=0,chk1,accx=0,accy=0;
+
+    break;
+    }
+    else if(chk1=='5')
+    boo1=1;
+}
+
+
+}
+  }
+}
